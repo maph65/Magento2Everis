@@ -1,0 +1,17 @@
+{
+    "everis_holamundo_dbschema": {
+        "column": {
+            "entity_id": true,
+            "value": true,
+            "oldvalue": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "processing": true
+        }
+    }
+}

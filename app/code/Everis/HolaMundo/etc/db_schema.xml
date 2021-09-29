@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="everis_holamundo_dbschema" engine="innodb" comment="Mi tabla creada con DB Schema">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Llave primaria" />
+        <column xsi:type="varchar" name="value" nullable="true" length="250" comment="Valor" />
+        <column xsi:type="varchar" name="oldvalue" nullable="true" length="250" comment="Valor anterior" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <table name="sales_order">
+        <column xsi:type="smallint" name="processing" padding="10" unsigned="true" nullable="false" default="0" comment="Modificando tabla sales_order" />
+    </table>
+
+</schema>
