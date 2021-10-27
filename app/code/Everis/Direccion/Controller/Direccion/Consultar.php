@@ -57,6 +57,7 @@ class Consultar extends Action{
         //echo $this->_request->getParam('param1');
 
         $result = array('result'=> false, 'message'=> __('Postal code is required'));
+        $data = array();
 
         //$neigborhood = $this->_neigborhood->create();
         //$neigborhood = $neigborhood->load(1);  //Esto es incorrecto, método load esta deprecated
@@ -67,14 +68,18 @@ class Consultar extends Action{
         if((int)$postalCode){
 
             $neigborhoodCollection = $this->_collection->create();
-            $neigborhoodCollection->addFieldToFilter('postal_code',array('eq'=>(int)$postalCode))->load();
+            $neigborhoodCollection->addFieldToFilter('postal_code',array('eq'=>(int)$postalCode));
+            $neigborhoodCollection->getSelect()->limit(10);
+            $neigborhoodCollection->load();
             if($neigborhoodCollection->getSize()){
                 foreach ($neigborhoodCollection as $neigborhood) {
-                    print_r($neigborhood->getData());
+                    $data[] = $neigborhood->getData();
                 }
             }
-            die();
-            $result = array('result'=> true, 'message'=> __('Success'));
+            $result = array(
+                'result'=> true,
+                'message'=> __('Success'),
+                'data' => $data);
         }
         $response = $this->_jsonFactory->create();
         return $response->setData($result);

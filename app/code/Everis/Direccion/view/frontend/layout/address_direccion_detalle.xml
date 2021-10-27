@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Everis_Direccion::js/prueba.js" />
+    </head>
+    <referenceContainer name="content">
+        <container name="container.ejemplo" htmlTag="div" htmlClass="container-ejemplo" before="-">
+            <block class="Everis\Direccion\Block\PostalCode" name="postal_code_content" template="Everis_Direccion::postalcode.phtml" />
+        </container>
+        <container name="container.ejemplo2" htmlTag="div" htmlClass="container-ejemplo2" after="container.ejemplo">
+
+        </container>
+    </referenceContainer>
+</page>

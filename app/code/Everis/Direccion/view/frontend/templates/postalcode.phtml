@@ -1,0 +1,15 @@
+<h1><?php echo $block->getTitle(); ?></h1>
+<?php
+$neighborhoods = $block->getNeigborhoods();
+if($neighborhoods):
+    echo '<ul>';
+    foreach ($neighborhoods as $nb):
+        echo '<li>'.$nb->getNeighborhood().'</li>';
+    endforeach;
+    echo '</ul>';
+    ?>
+<?php else: ?>
+<p><? echo __('No hay información que mostrar.');  ?></p>
+<?php
+endif;
+?>
